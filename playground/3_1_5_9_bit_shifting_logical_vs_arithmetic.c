@@ -21,19 +21,10 @@ int *: "pointer to int", \
 default: "other")
 
 int main () {
-  long long int a = 20L;
-  double b = 0.1;
-  float c = 0.1;
-  long long int d = 23LL;
-  unsigned short e = 3u;
-  int f = 3;
-  unsigned int g = 4;
-  long h = 4;
+  unsigned short int a = 8;
+  short int b = -8;
 
-  printf("%s\n", typename(a + b + a));
-  printf("%s\n", typename(c +b));
-  printf("%s\n", typename(c + d));
-  printf("%s\n", typename(e + f));
-  printf("%s\n", typename(g + h));
+  printf("%s %s\n", typename(a>>1), typename(b>>1)); 
+  printf("%hu %hd\n", a>>1, b>>1);
   return 0;
 }

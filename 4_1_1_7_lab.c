@@ -3,6 +3,8 @@
 /*
  * I can only think of the manual way to do this.
  * Not sure if there is another way possible with switch-case.
+ *
+ * Edit: I solved it, bitches.
  */
 
 /*
@@ -31,15 +33,31 @@ int main()
     	daysInOct = 31,
     	daysInNov = 30,
     	daysInDec = 31;
-    unsigned short sum = 0;
+    unsigned short sum = 0, is_valid_month = 1;
     unsigned short input;
     
     scanf("%hu", &input);
     
     switch (input) {
-        case 1: sum+=0; break;
-        case 2: sum+=daysInJan; break;
+        default: is_valid_month = 0; break;
+        case 12: sum += daysInNov; 
+        case 11: sum += daysInOct; 
+        case 10: sum += daysInSep; 
+        case  9: sum += daysInAug; 
+        case  8: sum += daysInJuly;
+        case  7: sum += daysInJune;
+        case  6: sum += daysInMay; 
+        case  5: sum += daysInApr; 
+        case  4: sum += daysInMar; 
+        case  3: sum += daysInFeb; 
+        case  2: sum += daysInJan; 
+        case  1: break;
     }
+
+    if (is_valid_month)
+      printf("There are %d days before the given month.", sum);
+    else
+      printf("Error: no such month in my calendar.");
     
 	return 0;
 }
